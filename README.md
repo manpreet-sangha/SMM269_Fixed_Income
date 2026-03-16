@@ -75,3 +75,9 @@ Each `Q*/` folder writes its outputs (figures, CSVs, text) into a local `output/
 | pandas     | Data handling and CSV I/O            |
 
 Python 3.12+ recommended.
+
+## Disclaimer
+
+> **AI-assisted code generation.** Targeted Python code in this repository was generated with the assistance of **Claude Opus 4.6** (Anthropic). All outputs were reviewed, validated, and integrated by the author.
+
+> **Academic integrity warning.** This repository is published for reference and transparency only. **Do not copy, reproduce, or submit any part of this work as your own.** Doing so may constitute **plagiarism and academic misconduct** under your institution's regulations and could result in serious disciplinary action.
