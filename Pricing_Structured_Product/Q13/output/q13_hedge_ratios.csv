@@ -1,0 +1,3 @@
+instrument,direction,notional_eur,par_rate_pct,hedge_ratio
+2Y EUR IRS (AB6E),Receiver,194.22,2.1421,0.00019422
+10Y EUR IRS (AB6E),Receiver,428.61,2.6584,0.00042861

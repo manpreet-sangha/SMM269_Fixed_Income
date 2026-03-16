@@ -1,0 +1,48 @@
+panel,metric,value,unit
+Fair Value,Leveraged FRN leg (1.60 x fwd),317.0591,EUR
+Fair Value,  Long floor strip (K=0%),3.0586,EUR
+Fair Value,  Short cap strip (K=3.406%),-31.5886,EUR
+Fair Value,Par redemption,802.2601,EUR
+Fair Value,Risk-free dirty price,1119.3192,EUR
+Fair Value,CVA (credit adjustment),-59.4332,EUR
+Fair Value,Risky dirty price,1059.886,EUR
+Fair Value,Accrued interest,-4.7794,EUR
+Fair Value,Risky clean price,1055.1065,EUR
+Market Comparison,Model clean price,1055.1100,EUR
+Market Comparison,Market clean price,1017.0000,EUR
+Market Comparison,Rich/cheap,38.1100,EUR
+Market Comparison,Z-spread (model),73.4613,bps
+Market Comparison,Z-spread (market),122.9885,bps
+Market Comparison,ASW spread (market),132.7337,bps
+Market Comparison,CDS 5Y spread,75.0000,bps
+Factor Model,Intercept,-0.501449,EUR/bps
+Factor Model,Beta Level,0.109885,EUR/bps
+Factor Model,Beta Slope,-0.113714,EUR/bps
+Factor Model,Beta Curvature,0.044097,EUR/bps
+Factor Model,Beta Cds,-0.752925,EUR/bps
+Factor Model,R-squared,0.946726,
+Factor Model,RMSE,1.842432,EUR
+Sensitivities,CS-DV01,0.75285,EUR/bps
+Sensitivities,Bond factor DV01 -- Level (PC1),0.144246,EUR/bps
+Sensitivities,Bond factor DV01 -- Slope (PC2),-0.113713,EUR/bps
+Sensitivities,Bond factor DV01 -- Curvature (PC3),0.044097,EUR/bps
+IRS Hedge,2Y EUR IRS (AB6E),"Receiver, EUR 194.22",par 2.1421%
+IRS Hedge,10Y EUR IRS (AB6E),"Receiver, EUR 428.61",par 2.6584%
+CDS Hedge,Direction,Buy protection,
+CDS Hedge,Notional,"1,625",EUR
+CDS Hedge,RPV01,4.634,yrs
+CDS Hedge,Avg hedge effectiveness,99.7,%
+Risk (Standalone),Portfolio sigma,11.7452,EUR
+Risk (Standalone),VaR 99% 1-month,27.3235,EUR
+Risk (Standalone),ES 99% 1-month,31.3036,EUR
+Risk (Standalone),CVaR -- Level (PC1),5.7166,EUR (20.92%)
+Risk (Standalone),CVaR -- Slope (PC2),0.375,EUR (1.37%)
+Risk (Standalone),CVaR -- Curvature (PC3),0.0104,EUR (0.04%)
+Risk (Standalone),CVaR -- CDS,21.2216,EUR (77.67%)
+Risk (Hedged),VaR 99% 1-month,4.1451,EUR
+Risk (Hedged),ES 99% 1-month,4.7489,EUR
+Risk (Hedged),VaR reduction,84.8,%
+Risk (Hedged),CVaR -- Level (PC1),3.6843,EUR (88.88%)
+Risk (Hedged),CVaR -- Slope (PC2),0.0000,EUR (0.00%)
+Risk (Hedged),CVaR -- Curvature (PC3),0.4608,EUR (11.12%)
+Risk (Hedged),CVaR -- CDS,0.0000,EUR (0.00%)

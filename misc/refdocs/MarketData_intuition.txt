@@ -1,0 +1,298 @@
+
+========================================================================
+  MARKET DATA INTUITION  –  MarketData202526.xlsx
+========================================================================
+
+  File      : MarketData202526.xlsx
+  Run date  : 2026-03-07
+  Sheets    : Refinitiv Code, IRS CURVE, Hist IRS, Hist Euribor, Bachelier, Displaced Black
+
+========================================================================
+  SHEET 1 – REFINITIV CODE (Reference Identifiers)
+========================================================================
+
+  IRS tickers    (16): ICEIB1Y, ICEIB2Y, ICEIB3Y, ICEIB5Y, ICEIB6Y, ICEIB7Y, ICEIB8Y, ICEIB9Y, ICEIB10, ICEIB12, ICEIB15, ICEIB20, ICEIB25, ICEIB30, ICEIB40, ICEIB50
+  EURIBOR tickers (0 ): 
+
+  Interpretation:
+    ICEIB* = EUR 30/360 6M EURIBOR Interest Rate Swap par rates
+    EIBOR* = EBF EURIBOR fixings (1W, 1M, 3M, 6M, 12M)
+    Both sourced via LSEG Refinitiv Datastream (DSGRID formula).
+
+========================================================================
+  SHEET 2 – IRS CURVE  (Snapshot: 5 November 2025)
+========================================================================
+
+  Snapshot date : 05 Nov 2025
+
+  -- SHORT END (Money Market) --
+    EUR CASH DEPOSIT O/N (TP) - MIDDLE RATE      :  1.900%
+    EBF EURIBOR 1W DELAYED - OFFERED RATE        :  1.921%
+    EBF EURIBOR 1M DELAYED - OFFERED RATE        :  1.914%
+    EBF EURIBOR 3M DELAYED - OFFERED RATE        :  2.023%  <-- key 3M coupon reset
+    EBF EURIBOR 6M DELAYED - OFFERED RATE        :  2.142%
+    EBF EURIBOR 12M DELAYED - OFFERED RATE       :  2.199%
+
+  -- IRS CURVE (par swap rates, EUR 6M EURIBOR vs fixed) --
+    EUR 1Y AB6E IRS                              : 2.1300%
+    EUR 18M AB6E IRS                             : 2.1140%
+    EUR 2Y AB6E IRS                              : 2.1420%
+    EUR 3Y AB6E IRS                              : 2.1930%
+    EUR 4Y AB6E IRS                              : 2.2815%
+    EUR 5Y AB6E IRS                              : 2.3498%
+    EUR 6Y AB6E IRS                              : 2.4155%
+    EUR 7Y AB6E IRS                              : 2.4803%
+    EUR 8Y AB6E IRS                              : 2.5398%
+    EUR 9Y AB6E IRS                              : 2.5975%
+    EUR 10Y AB6E IRS                             : 2.6330%
+    EUR 12Y AB6E IRS                             : 2.7320%
+    EUR 15Y AB6E IRS                             : 2.8330%
+    EUR 20Y AB6E IRS                             : 2.9040%
+    EUR 25Y AB6E IRS                             : 2.9090%
+    EUR 30Y AB6E IRS                             : 2.8980%
+    EUR 40Y AB6E IRS                             : 2.8825%
+    EUR 50Y AB6E IRS                             : 2.8295%
+
+  -- SHAPE & SLOPE ANALYSIS --
+    Slope  10Y - 2Y   : +49.1 bps
+    Slope  30Y - 10Y  : +26.5 bps
+    Slope  50Y - 30Y  : -6.9 bps
+    Curvature 2*5Y-(2Y+10Y): -7.5 bps
+
+  -- INTERPRETATION --
+    The EUR IRS curve (5-Nov-2025) is upward sloping in the belly
+    (2Y-30Y), typical of a late rate-cutting-cycle environment.
+    The ECB Deposit Facility rate was ~3.4% in late 2023 (peak) and
+    has been cut steadily; O/N at 1.90% signals further cuts already
+    delivered. The 3M EURIBOR (2.023%) sits above O/N but below the
+    1M (1.914%) – the inversion at the very short end reflects market
+    expectation of near-term ECB rate cuts embedded in forward rates.
+
+  -- BOND RELEVANCE (UniCredit Var. Rate Bond 2034) --
+    Current 3M EURIBOR    : 2.023%
+    Cap break-even EURIBOR: 3.375%  (= 5.40% / 1.60)
+    Gap to cap            : +135.2 bps
+    Current coupon (est.) : 3.2368%  (= 1.60 x 2.023%)
+    => Bond is in LINEAR regime; cap not binding, floor not binding.
+
+========================================================================
+  SHEET 3 – HIST IRS  (Historical EUR IRS rates, 10-yr panel)
+========================================================================
+
+  Date range    : 2015-12-22 to 2025-12-22
+  Observations  : 2610
+  Tenors        : ICEIB1Y, ICEIB2Y, ICEIB3Y, ICEIB5Y, ICEIB6Y, ICEIB7Y, ICEIB8Y, ICEIB9Y, ICEIB10, ICEIB12, ICEIB15, ICEIB20, ICEIB25, ICEIB30, ICEIB40, ICEIB50
+
+  -- DESCRIPTIVE STATISTICS (%)
+  Tenor           Min      Max     Mean      Std    Current    %-ile
+  --------------------------------------------------------------
+  2Y IRS       -0.574    3.969    0.829    1.496      2.288    77.1%
+  5Y IRS       -0.565    3.499    0.951    1.306      2.600    82.4%
+  10Y IRS      -0.345    3.524    1.259    1.156      2.964    91.7%
+  30Y IRS      -0.245    3.283    1.457    0.914      3.272    99.9%
+
+  -- 10Y-2Y SLOPE HISTORY (bps)
+    Min       : -88.2 bps  (2023-07-03)
+    Max       : 129.0 bps  (2018-02-15)
+    Mean      : 43.0 bps
+    Current   : 67.6 bps
+
+  -- KEY OBSERVATIONS --
+    Rates turned negative (1Y-10Y IRS) circa Jan 2016 and remained
+    negative until mid-2022 as ECB operated NIRP (negative interest
+    rate policy). The sharp rate hike from Jun 2022 rapidly pushed
+    all tenors positive; 10Y IRS peaked ~3.4% in Oct 2023.
+    Since then, ECB cuts have brought rates down; current 10Y at
+    2.964% (in the 92th percentile of the 10Y history).
+
+========================================================================
+  SHEET 4 – HIST EURIBOR  (Historical EURIBOR fixings)
+========================================================================
+
+  Date range    : 2015-11-04 to 2025-11-03
+  Observations  : 2609
+  Tenors        : TPEURON, EIBOR1W, EIBOR1M, EIBOR3M, EIBOR6M, EIBOR12
+
+  -- DESCRIPTIVE STATISTICS (%)
+  Tenor         Min      Max     Mean      Std    Current    %-ile
+  ----------------------------------------------------------
+  O/N        -1.210    3.830    0.539    1.597      1.900    75.0%
+  1W         -0.602    3.907    0.603    1.617      1.921    75.7%
+  1M         -0.648    3.895    0.615    1.604      1.914    74.8%
+  3M         -0.605    4.002    0.694    1.619      2.023    73.6%
+  6M         -0.554    4.143    0.783    1.629      2.142    74.9%
+  12M        -0.518    4.228    0.874    1.603      2.199    74.0%
+
+  -- KEY OBSERVATIONS --
+    EURIBOR 3M peaked at ~3.99% (Oct 2023) during the ECB rate hike
+    cycle (largest and fastest hike cycle in ECB history). Minimum
+    was ~-0.57% (2021) during NIRP era. Current 3M (2.023%) is
+    above the 10Y mean (~0.60%) but much lower than the peak.
+    The forward curve implies further ECB cuts: 1M EURIBOR (1.914%)
+    is BELOW 3M (2.023%), signalling a rate-cut expectation over the
+    next 2-3 months that is embedded in the forward rate structure.
+
+  -- BOND RELEVANCE --
+    The bond coupon resets quarterly to 1.60 x (3M EURIBOR).
+    Current rate: 1.60 x 2.023% = 3.2368% per annum.
+    Historical EURIBOR highs (>3.375%) would have triggered the cap;
+    in the NIRP era (neg EURIBOR) the floor (0%) would have bound.
+    % of history where EURIBOR 3M >= cap break-even (3.375%): 13.6%
+    % of history where EURIBOR 3M <= 0% (floor bound)       : 66.9%
+
+========================================================================
+  SHEET 5 – BACHELIER VOL SURFACE  (Normal / Basis-Points)
+========================================================================
+
+  Source : ICAP, 05-Nov-2025 (data stamp on file: 13:25)
+  Vols   : Normal (Bachelier) model, units = basis points (bps)
+  Tenors : 1Y, 18M, 2Y, 3Y, 4Y, 5Y, 6Y, 7Y, 8Y, 9Y, 10Y, 12Y, 15Y, 20Y, 25Y, 30Y
+  Strikes: ATM, -1.5, -1, 0, 0.5, 1, 1.5, 2, 3, 4, 5, 6, 7, 10 (%)
+
+  -- ATM VOLATILITY TERM STRUCTURE (bps) --
+  Tenor      ATM Strike   ATM Vol (bps)
+  --------------------------------------
+  1Y              1.97%         27.48 bps
+  18M             1.97%         33.56 bps
+  2Y              2.00%         37.79 bps
+  3Y              2.17%         49.16 bps
+  4Y              2.26%         54.01 bps
+  5Y              2.33%         57.47 bps
+  6Y              2.40%         59.97 bps
+  7Y              2.46%         61.84 bps
+  8Y              2.52%         63.21 bps
+  9Y              2.58%         64.20 bps
+  10Y             2.63%         64.92 bps
+  12Y             2.72%         65.76 bps
+  15Y             2.82%         66.16 bps
+  20Y             2.89%         66.19 bps
+  25Y             2.89%         66.10 bps
+  30Y             2.87%         65.86 bps
+
+  -- VOL SMILE (selected tenors, bps) --
+    Strike          1Y          5Y         10Y         30Y
+  ------------------------------------------------------------
+       ATM        27.5        57.5        64.9        65.9
+      -1.5       114.0        90.8        75.7        66.4
+        -1       104.0        85.9        73.5        65.1
+         0        81.5        76.2        69.7        63.7
+       0.5        69.3        71.3        67.9        63.4
+         1        56.2        66.2        66.0        63.2
+       1.5        41.9        60.9        64.0        63.1
+         2        26.9        56.5        62.3        63.2
+         3        45.6        65.0        67.3        66.4
+         4        68.4        77.3        73.9        70.8
+         5        89.7        90.1        80.6        75.9
+         6       131.0       103.0        87.5        81.5
+         7       163.0       116.0        95.0        87.5
+
+  -- KEY OBSERVATIONS --
+    1. ATM vol term structure is steeply upward-sloping in the front
+       (1Y=27 bps to 10Y=65 bps), then flattens at 20Y-30Y (~66 bps).
+    2. Smile is U-shaped (or 'smirk'): high vols for deep OTM puts
+       (-1.5% strike) and rising vols for OTM calls (>ATM). This is
+       typical for EUR caps/floors in post-NIRP environment where
+       negative-rate risk is still priced at the short end.
+    3. For the 10Y cap@5.40%: ATM for 10Y is ~2.63%; the cap strike
+       is +2.77% OTM. Reading across the +3 column (closest to OTM):
+       10Y Cap vol at +3%: 67.3 bps (ATM: 64.92 bps)
+    4. For the 10Y floor@0%: ATM is 2.63%; floor strike is -2.63% OTM.
+       Reading the -1.5% col (nearest): floor vol is higher than ATM
+       due to residual tail risk from the negative rate era.
+
+========================================================================
+  SHEET 6 – DISPLACED BLACK VOL SURFACE  (Shifted Black, shift=3%)
+========================================================================
+
+  Source : ICAP, 05-Nov-2025 (data stamp: 13:33)
+  Vols   : Shifted Black-76 model, units = % (annualised lognormal)
+  Shift  : 3.00% (applied to all tenors, 1Y/18M/2Y use 3M; 3Y+ use 6M)
+  Tenors : 1Y, 18M, 2Y, 3Y, 4Y, 5Y, 6Y, 7Y, 8Y, 9Y, 10Y, 12Y, 15Y, 20Y, 25Y, 30Y
+
+  -- ATM VOL COMPARISON: Bachelier (bps) vs Displaced Black (%) --
+  Tenor      ATM Strike    Bachelier ATM (bps)   Displ. Black ATM (%)
+  --------------------------------------------------------------------
+  1Y              1.97%               27.48 bps                5.53%
+  18M             1.97%               33.56 bps                6.75%
+  2Y              2.00%               37.79 bps                7.55%
+  3Y              2.17%               49.16 bps                9.48%
+  4Y              2.25%               54.01 bps               10.24%
+  5Y              2.33%               57.47 bps               10.74%
+  6Y              2.39%               59.97 bps               11.06%
+  7Y              2.46%               61.84 bps               11.26%
+  8Y              2.52%               63.21 bps               11.37%
+  9Y              2.58%               64.20 bps               11.42%
+  10Y             2.63%               64.92 bps               11.43%
+  12Y             2.72%               65.76 bps               11.38%
+  15Y             2.82%               66.16 bps               11.26%
+  20Y             2.89%               66.19 bps               11.17%
+  25Y             2.89%               66.10 bps               11.20%
+  30Y             2.87%               65.86 bps               11.23%
+
+  -- KEY OBSERVATIONS --
+    1. Shifted Black shift=3% means the model treats forward rate as
+       (F + 3%), allowing lognormal vol to handle near-zero or
+       negative rates without arbitrage.
+    2. Displaced Black ATM vols (~5.5-11.4%) are much smaller numbers
+       than Bachelier bps vols (27-66 bps). Both describe the same
+       market prices; conversion: sigma_N ~ sigma_SB * (F + shift).
+       E.g., 10Y: sigma_SB=11.43%, F+shift=2.633%+3%=5.633%
+       => approx Bachelier vol = 64.4 bps  (market: 64.92 bps)
+    3. Smile shape: Displaced Black shows higher vols at deep OTM puts
+       (e.g., -1.5% strike) and elevated at OTM calls, consistent with
+       Bachelier surface (both pricing the same caps/floors).
+    4. Long-end (20Y-30Y) smile is notably flatter than short end,
+       reflecting reduced uncertainty about the long-run rate level.
+
+========================================================================
+  FIGURES
+========================================================================
+
+  MD_01_spot_curve.png        saved -> C:\Users\msang\OneDrive - City St George's, University of London\Documents\Term 2\SMM269 Fixed Income\SMM269_FICW\misc\MD_01_spot_curve.png
+  MD_02_historical.png        saved -> C:\Users\msang\OneDrive - City St George's, University of London\Documents\Term 2\SMM269 Fixed Income\SMM269_FICW\misc\MD_02_historical.png
+  MD_03_vol_surfaces.png      saved -> C:\Users\msang\OneDrive - City St George's, University of London\Documents\Term 2\SMM269 Fixed Income\SMM269_FICW\misc\MD_03_vol_surfaces.png
+  MD_04_atm_vol.png           saved -> C:\Users\msang\OneDrive - City St George's, University of London\Documents\Term 2\SMM269 Fixed Income\SMM269_FICW\misc\MD_04_atm_vol.png
+
+========================================================================
+  SUMMARY FOR BOND PRICING
+========================================================================
+
+  The following data points are DIRECTLY RELEVANT to pricing the
+  UniCredit Variable Rate Bond 2034 (ISIN IT0005599110):
+
+  DISCOUNT / FORWARD CURVE:
+    Use the IRS CURVE sheet as the basis for bootstrapping the
+    EUR discount/EURIBOR forward curve (multi-curve: EURIBOR 3M
+    forwards vs OIS/ESTER for discounting). The AB6E IRS rates
+    (6M EURIBOR, semi-annual fixed coupon) need a basis adjustment
+    to derive the 3M EURIBOR forward curve.
+
+  VOLATILITY SURFACE:
+    Both Bachelier and Displaced Black surfaces are provided.
+    For the caps/floors embedded in the bond:
+      - Cap @5.40%  → 10Y cap; strike ~2.77% OTM from ATM (2.63%)
+      - Floor @0.00%→ 10Y floor; strike ~2.63% OTM (deep OTM floor)
+    The Bachelier surface is preferred for EUR IR options post-NIRP
+    (avoids log-of-negative-number issues). Bachelier 10Y ATM ~65 bps.
+
+  HISTORICAL CONTEXT:
+    The 10-yr history shows two distinct rate regimes:
+    (A) NIRP era (2016-2022): negative rates; floor likely binding for
+        short-dated bonds; irrelevant for this bond (issued Jun 2024).
+    (B) Hiking cycle (2022-2023): rapid rate rise; cap would have been
+        binding for coupon periods had the bond existed then.
+    (C) Cutting cycle (2024-present): rates normalising downward;
+        bond currently in the linear coupon regime.
+
+  KEY NUMBERS TO CARRY INTO PRICING:
+    Valuation date      : 05 Nov 2025
+    EURIBOR 3M (spot)   : 2.023%
+    EURIBOR 12M         : 2.199%
+    IRS 10Y par rate    : 2.6330%
+    Bachelier ATM (10Y) : 64.92 bps
+    Bond cap EURIBOR    : 3.375%  (= 5.40% / 1.60)
+    Current coupon      : 3.2368% p.a.
+
+========================================================================
+  END OF MARKET DATA INTUITION
+========================================================================

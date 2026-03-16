@@ -1,0 +1,13 @@
+Figure~\ref{fig:replication_payoff} illustrates the payoff decomposition
+across nine EURIBOR scenarios (left panel) and the fair-value
+contribution of each component at the September~2025 valuation date (right panel).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{q1d_replication_payoff.png}
+  \captionof{figure}{Replication analysis: payoff decomposition across EURIBOR scenarios and QuantLib fair-value contribution (ISIN: IT0005599110).}
+  \label{fig:replication_payoff}
+\end{figure}
+
+Cap and floor premiums are estimated using the Bachelier (normal) interest-rate model,
+as discussed in Section~\ref{sssec:capfloor}.

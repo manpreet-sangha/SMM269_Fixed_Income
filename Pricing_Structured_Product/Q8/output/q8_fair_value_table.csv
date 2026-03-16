@@ -1,0 +1,14 @@
+component,pv_eur,pct_par
+A. Leveraged FRN leg (1.60 * fwd coupons),317.0591,31.7059
+B. Long floor strip (K = 0%),3.0586,0.3059
+C. Short cap strip (K = 3.406%),-31.5886,-3.1589
+   Net option value (B + C),-28.53,-2.853
+D. Par redemption (100% at maturity),802.2601,80.226
+---,---,---
+Risk-free dirty price (A+B+C+D),1119.3192,111.9319
+E. CVA (credit adjustment),-59.4332,-5.9433
+---,---,---
+Risky dirty price (A+B+C+D+E),1059.886,105.9886
+F. Accrued interest,-4.7794,-0.4779
+---,---,---
+RISKY CLEAN PRICE,1055.1065,105.5107

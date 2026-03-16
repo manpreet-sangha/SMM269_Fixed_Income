@@ -1,0 +1,4 @@
+factor,pc_index,bond_dv01_eur,irs_2y_dv01_eur,irs_10y_dv01_eur
+Level (PC1),1,0.144246,-55.811091,-311.250507
+Slope (PC2),2,-0.113713,-111.537018,315.845853
+Curvature (PC3),3,0.044097,-5.914721,-367.03928

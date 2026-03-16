@@ -1,0 +1,12 @@
+factor,coefficient,std_error,t_statistic
+intercept,-0.501449,0.376085,-1.33
+beta_level,0.109885,0.010879,10.10
+beta_slope,-0.113714,0.044735,-2.54
+beta_curvature,0.044097,0.123298,0.36
+beta_cds,-0.752925,0.042230,-17.83
+
+metric,value
+R_squared,0.946726
+Adj_R_squared,0.937846
+RMSE,1.842432
+n_obs,29

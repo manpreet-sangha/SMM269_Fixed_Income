@@ -1,0 +1,611 @@
+========================================================================
+  REFDOCS INTUITION  –  misc/refdocs/
+  Analysis date  : 2026-03-07
+  PDFs found     : 16
+========================================================================
+
+
+########################################################################
+  PDF 01/16  |  Bllomberg\Bloomberg Recommended Settings for Interest Rate Curve.pdf
+  File size : 265.9 KB
+########################################################################
+  Pages         : 5
+  Chars extracted: 4,252
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  Bloomberg Recommended Settings Bloomberg recommended Interest Rates Curve Settings ensures you obtain Bloomberg’s most accurate price for pricing derivatives with the “best” available data and latest market conventions. Bloomberg’s “best” available data depends on the accuracy, reliability and accessibility of contributions fed into the system. This document includes: 1. Description of Bloomberg Recommended Settings 2. How to update your settings to Bloomberg Recommended Settings 3. How to revert to your previous settings Description of Bloomberg Recommended Settings You can define the settings to be applied to interest rate curves in SWDF <GO>. Bloomberg Recommended settings define: 1- Market Side 2- Interpolation Method 3- Cross-Currency Basis Market Side 4- (L)ibor Fixing Option for the DV01 Calculation 5- OIS Discounting and Dual Curve Stripping 6- Use Bloomberg Source 8 for curves by default for pricing 1- Market Side: Mid Bloomberg recommended settings suggest to use Mid quotes for the underlying instruments of the curve. 2 - Interpolation Method: Step-Forward Step-Forward assumes a piecewise constant function for the forward rate. Please see below a comparison between the piecewise linear (simple-compounded zero-rate) method and the Step-Forward interpolation methods. Piecewise linear (Simple-comp) Piecewise Constant Method Piecewise Linear To get more information, please refer DOCS 2064159 <GO>. 3- Cross Currency Basis Market Side: Basis side always at Mid This setting indicates the curve market quote to be used for pricing cross-currency basis swaps. Bloomberg recommended settings suggest to use Mid quotes. 4- (L) ibor Fixing Option (DV01 Calculation): Constant This setting is to indicate whether the first Libor Fixing period rate of the derivative should be kept constant or be shifted along with the rest of the curve for the DV01 calculation. Bloomberg recommended setting suggests keeping the first fixing for the DV01 calculation constant. This is based on the premise that the first fixing has been set so changes in today’s market conditions do not impact this payment period. 5- OIS Discounting/Dual Curve Stripping: Enable Because of the increasing use of liquid collateral and of initial and variation margin, it is becoming more commonplace to price and value derivatives using an OIS curve, and to infer their future cashflows from a combination of both the OIS and par swap curves (known as Dual Curve Stripping). The enablement of this Bloomberg Setting will automatically use an OIS curve for discounting and Dual Curve stripping to generate the forwards for the derivatives denominated in any of the
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > 1. Description of Bloomberg Recommended Settings
+    > 2. How to update your settings to Bloomberg Recommended Settings
+    > 3. How to revert to your previous settings
+    > 2. How to update your settings to Bloomberg Recommended Settings
+    > 3. How to revert to your previous settings
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    settings(23), bloomberg(20), curve(14), recommended(13), setting(10)
+    market(7), revert(7), previous(7), column(6), curves(5), side(5)
+    fixing(5), source(5), piecewise(5), constant(5), rate(4), basis(4)
+    option(4), calculation(4), dual(4)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    EUR IRS / Curve Bootstrap, EURIBOR / LIBOR fixing, Day Count / Conventions, Bloomberg data, Term Structure Interpolation
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~663
+    Page density   : 132 words/page
+    Topic area     : Bloomberg terminal usage for building interest
+                     rate curves (ICVS function, curve settings,
+                     DSGRID data extraction, swap math).
+
+
+########################################################################
+  PDF 02/16  |  Bllomberg\building_the_bloomberg_irc.pdf
+  File size : 1061.3 KB
+########################################################################
+  Pages         : 26
+  Chars extracted: 38,679
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  Page 1 Building the Bloomberg Interest Rate Curve – Definitions and Methodology July 2012 Abstract The goal of this document is to describe the process of building interest rate curves in Bloomberg terminal. We give short definitions of terms used, e.g. of different rates (simple rate, continuously compounded forward rate, zero rate, etc.). We briefly describe the instruments used in building the curve (cash rates, interest rate (IR) futures and IR swaps). Special attention is given to discussion of a functional form of the curve (a.k.a. 4 interpolation methods) and algorithms of building the curve under these different interpolations (curve stripping methods). The discussion is limited to single-currency IR curves, no FX curves or basis curves are discussed here. Interest Rate Curve – Definition The Interest Rate (IR) curve is an object which allows one to calculate a discount factor for every date within the curve range in the future thus providing us with the risk-free present value of a unit of currency (say, $1) at that date. It is used to calculate present values of a known set of payments (cash flows). While in some situations one can construct an IR curve which takes into account an additional discount due to risk of default of the counterparty, this document leaves the discussion of default or credit risk out. For the sake of simplicity we will use an assumption that the IR curves describe risk-free present values. Another use for IR curves is to calculate projected forward rates between two dates (d ,d ) in the future. 1 2 An example of such use is a construction of payments of a ‘floating leg’ of an IR swap which pays quarterly an amount of interest equal to 3-month LIBOR rate on a given notional amount. While the actual payments which will be made in the future are not known until we reach that point in time when the value of LIBOR is quoted, the present value (PV) of this stream of payments is correct if we use current projections of forward rates from the presently known curve. Definition of Rates In this section we provide definitions of different types of interest rates such as simple spot rate, continuously compounded forward rate, etc., necessary for discussion of instruments used to build an IR curve and used to describe the functional shape of the curve. The simple spot rate r is defined by
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > 1 2
+    > 0 1r (t)t
+    > 0 0
+    > 0 0
+    > 0 2 
+    > 0 1 sf (2)
+    > 1 2
+    > 1 2 cf
+    > 1 2 0 1 2
+    > 1 0 1 2 0 2
+    > 0 cz
+    > 1. a bootstrap method, where each of curve’s pieces has one independent degree of freedom
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    curve(136), rate(108), forward(78), rates(58), time(50), swap(39)
+    futures(34), interpolation(25), bloomberg(22), zero(22), cash(22)
+    constant(22), defined(20), forwards(20), discount(19), curves(18)
+    compounded(18), instruments(18), interest(16), example(16)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    EUR IRS / Curve Bootstrap, EURIBOR / LIBOR fixing, Day Count / Conventions, Bloomberg data, Discounting / DCF, Term Structure Interpolation
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~7,116
+    Page density   : 273 words/page
+    Topic area     : Bloomberg terminal usage for building interest
+                     rate curves (ICVS function, curve settings,
+                     DSGRID data extraction, swap math).
+
+
+########################################################################
+  PDF 03/16  |  Bllomberg\CALCULATION TYPES FUNCTIONS.pdf
+  File size : 1174.8 KB
+########################################################################
+  Pages         : 124
+  Chars extracted: 311,631
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCULATION TYPES (CALT) HELP PAGE CALCULATION TYPES CALT ( ) Enter CALT<Go>, then press <Help> Bloomberg's commitment to reducing our environmental impact starts with you. Please help us eliminate unnecessary printing by reading this document online. This document was prepared for the exclusive use of Ivana Ciullo and may not be redistributed. Date: 01/30/2017 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCULATION TYPES (CALT) CONTENTS CALCULATION TYPES (CALT) (127)J apaneseG overnmenTt reasuryD iscounBt 1ill7s( TickerJ: TDB) 1 - 199 08 (129) ISMA Convention 17 (2) When-Issued US Treasuries 08 (130) Defaulted Bonds 17 (5)Z ero-CouponB ondst hatC alculatea S impleD i0sc8ountY ield (133) Multi-Coupon Bonds 17 (6) Discounted Commercial Paper 08 (135) Italian Btes - 12.5% Withholding Tax 18 (7) CD/Interest at Maturity 09 (144) New Zealand Government Bonds 18 (13) Street Convention Fixed 09 (164) Municipal Notes 18 (17) Money Market Floaters 09 (177) Italian Bots - No Longer Used 18 (21) Corporate Floaters 10 (180S) panishD omesticB onds(C onventionaM1l 8ethodA- nnuaYl ield) (22) Certificates of Deposit 10 (183) Norway Fixed 18 (26)U KD omesticN otesa ndB onds( ConsortiumM 1et1hod) (186) Irish Gilts (ISMA Method) 19 (33) Mortgage Securities 11 (190) Moosmuller Method 19 (34) Mortgage Securities 11 (192) UK Preference Shares (ISMA Method) 19 (35) Term Debenture Bonds 11 (195) New Zealand Index-Linked 19 (41) Perpetual Bonds 11 (197) Bank of Canada Method 19 (42) Perpetual Ex-Dividend Bonds 11 (198) Special NO CALCULATIONS Calc Type for Fr2n0s (44) Index-Linked Gilts and UK RPI Corporate Bond1s1 (199)S pecialN OC ALCULATIONSC alcT ypef orW 2a0rrants (46) Municipal Bonds 12 200 - 399 20 (48) Canadian Bonds 12 (204) Special No Calculations for ARPS 20 (49) USD Convertible Bonds 12 (205) New Issue Preferred Stock - $ Type 20 (51) Japanese Government Bonds 12 (206) New Issue Preferred Stock - % Type 20 (52Ja) panesGe overnmenStt ripasnW d h1eI3sns ueJda panesGe overnmenBto nds (212) % Pik Preferred 21 (54) Japanese Discount Bonds (No Bills) 14 (216) Special Canadian Accrued (ACT/365 & ACT/32616) (56) Preferred Stock - $ Type 14 (219) German Schuldscheindarlehen 21 (57) Preferred Stock - % Type 14 (223) German Schuldscheindarlehen/Isma 21 (59) Partly Paid Eurobonds 14 (227) US Treasury Floater 21 (60) German Fixed Rate Bonds (ISMA Method) 14 (228) German Corporates/Moosmueller 22 (71) Austrian Fixed Rate Bonds (ISMA Method) 14 (233) Italian CCT 22 (77) Par/Pro-Rata Sinking Fund 15 (235J)a paneseG overnmenBt ondLs- o ngL asC2t 2oupons(T ickerJ:G B) (89) French Fixed Rate Bonds
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCULATION TYPES (CALT)
+    > HELP PAGE
+    > CALCULATION TYPES
+    > >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCULATION TYPES (CALT)
+    > CONTENTS
+    > >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCULATION TYPES (CALT)
+    > CONTENTS
+    > >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCULATION TYPES (CALT)
+    > CONTENTS
+    > >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCULATION TYPES (CALT)
+    > CONTENTS
+    > >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCULATION TYPES (CALT)
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    coupon(779), bonds(621), accrued(488), period(486), yield(478)
+    date(460), rate(458), calculated(432), basis(379), interest(368)
+    days(359), settlement(338), index(336), price(330), calculation(316)
+    types(259), calt(245), cash(242), inflation(240), frequency(217)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    EUR IRS / Curve Bootstrap, EURIBOR / LIBOR fixing, Day Count / Conventions, Bloomberg data, Discounting / DCF, Term Structure Interpolation
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~51,002
+    Page density   : 411 words/page
+
+
+########################################################################
+  PDF 04/16  |  Bllomberg\the_new_swap_math.pdf
+  File size : 251.6 KB
+########################################################################
+  Pages         : 5
+  Chars extracted: 8,022
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  1 THE NEW SWAP MATH Fabio Mercurio, OTC Derivatives and Structured Notes Bloomberg LP, New York ABSTRACT In this short document we describe the valuation formula for swaps in a multi‐curve context and hint at the dual‐curve bootstrapping of LIBOR projections from market interest‐rate data. ASSUMPTION ON THE DISCOUNT CURVE We introduce the following assumption on the (assumed single) discount curve, for a given currency: The discount curve is the OIS zero‐coupon curve, which is stripped from market OIS swap rates and defined for every possible maturity, T: T  P (0, T) = POIS(0, T), D Where P (t, T) denotes the discount factor (zero‐coupon bond) at time t for maturity T, which is D assumed to coincide with the corresponding OIS‐based zero‐coupon bond for maturity T. The stands D for “discount curve.” The rationale behind this assumption is that in the interbank derivatives market, a collateral agreement (CSA) is often negotiated between two counterparties. The CSA is set to mitigate the credit risk of both parties, allowing them to establish bilateral mark‐to‐market collateral arrangements. We assume here that the collateral, typically a bond or cash, is revalued daily at a rate equal (or close) to the overnight rate, which can thus justify the use of OIS rates for discounting. In the following, as in Kijima, et al. (2009), the pricing measures we will consider are those associated with the discount curve. This is also consistent with the results of Fujii, et al. (2009) and Piterbarg (2010), since we assume CSA agreements where the collateral rate to be paid equals the (assumed risk‐free) overnight rate. DEFINITION OF FRA RATE AND ITS PROPERTIES Definition 1 Classically, an FRA is defined according to the following1: 1 This definition of the FRA rate slightly differs from that implied by the actual market contract. This abuse of terminology is justified because this “theoretical” FRA rate and the market coincide in a single‐curve setting. In our multi‐curve case they are different, but their difference can be shown to be negligible under typical market conditions. 2 Consider times t, T1 and T , t  T  T . The time‐t FRA rate FRA(t;T ,T ) is defined as the fixed rate to be 2 1 2 1 2 exchanged at time T for the Libor rate L(T ,T ) so that the swap has zero value at time t. 2 1 2 Denoting by
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > THE NEW SWAP MATH
+    > ABSTRACT
+    > ASSUMPTION ON THE DISCOUNT CURVE
+    > T  P (0, T) = POIS(0, T),
+    > DEFINITION OF FRA RATE AND ITS PROPERTIES
+    > 2 1 2 1 2
+    > 2 1 2
+    > 2 1
+    > 1 2
+    > 1 2
+    > 1 1 1 2 1 2
+    > PRICING OF INTEREST RATE SWAPS
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    rate(28), curve(24), market(14), discount(14), swap(13), rates(13)
+    time(11), libor(10), zero(9), fixed(8), swaps(7), defined(7)
+    collateral(7), single(6), pricing(6), coupon(5), corresponding(5)
+    risk(5), kijima(5), definition(5)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    EUR IRS / Curve Bootstrap, EURIBOR / LIBOR fixing, Day Count / Conventions, Bloomberg data, Discounting / DCF, Term Structure Interpolation
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~1,346
+    Page density   : 269 words/page
+
+
+########################################################################
+  PDF 05/16  |  Caplet stripping (volatility bootstrapping)\caplet-stripping-opengamma.pdf
+  File size : 2402.5 KB
+########################################################################
+  Pages         : 28
+  Chars extracted: 47,596
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  OpenGamma Quantitative Research Eight ways to strip your caplets: An introduction to caplet stripping RichardWhite&YukinoriIwashita Richard@opengamma.com yuki@opengamma.com OpenGammaQuantitativeResearchn.24 | Firstversion:September26,2014;thisversionOctober2,2014 Abstract This paper is neither a primer on vanilla interest rate derivatives or numerical opti- misation. It is, as its name suggests, an introduction to caplet stripping, i.e. inferring caplet/floorlet prices from the market prices of interest rate caps and floors. This of course required some numerical optimisation. We present several techniques (of different levels of sophistication) to achieve our goal. These fall roughly into two camps: producing caplet volatilities such that the market (cap/floor) prices are recovered exactly (or to some high tolerance), with little regard for whetherthereisanyarbitragebetweencapletsatdifferentstrikes; producingarbitragefree caplet volatility surfaces, which do not fully recover the market prices. Contents 1 Introduction 1 2 Pricing Caps and Caplets 1 2.1 Pricing Caplets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 2.2 Pricing Caps . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 2.3 Cap Volatility . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 2.4 Cap Strikes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 3 General Calibration 3 4 Term Structure Stripping Methods 4 4.1 Bootstrapping . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5 4.2 Interpolated Curve . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5 4.2.1 Using different numbers of knots . . . . .
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > 1 Introduction 1
+    > 2 Pricing Caps and Caplets 1
+    > 3 General Calibration 3
+    > 4 Term Structure Stripping Methods 4
+    > 4.2.1 Using different numbers of knots . . . . . . . . . . . . . . . . . . . . . . . 7
+    > 4.3.2 P-Splines . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+    > 5 Global Stripping Methods 10
+    > 5.1.1 SABR with interpolated parameter term structures . . . . . . . . . . . . . 11
+    > 5.1.2 Smile Based Stripper using P-Splines . . . . . . . . . . . . . . . . . . . . . 14
+    > 6 Conclusion 16
+    > 1 Introduction
+    > 2 Pricing Caps and Caplets
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    caplet(69), volatility(61), strike(44), market(36), caplets(35)
+    volatilities(32), caps(31), penalty(31), term(26), matrix(26)
+    surface(25), expiry(23), rate(22), values(21), parameters(21)
+    opengamma(20), curve(20), knots(20), some(19), strikes(19)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    EUR IRS / Curve Bootstrap, EURIBOR / LIBOR fixing, Cap/Floor / Swaption, Vol Surface / Smile, Day Count / Conventions, Discounting / DCF, Term Structure Interpolation
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~7,249
+    Page density   : 258 words/page
+    Topic area     : Volatility bootstrapping from cap/floor market
+                     prices to caplet/floorlet vols; smile interpolation
+                     methods (SABR, cubic spline) used after stripping.
+    Topic area     : Yield curve construction methodologies (bootstrapping,
+                     interpolation, multi-curve framework, OIS discounting).
+
+
+########################################################################
+  PDF 06/16  |  Caplet stripping (volatility bootstrapping)\SmileInterpolation_OpenGamma.pdf
+  File size : 586.1 KB
+########################################################################
+  Pages         : 20
+  Chars extracted: 29,739
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  OpenGamma Quantitative Research Smile Interpolation and Extrapolation YukinoriIwashita yuki@opengamma.com OpenGammaQuantitativeResearchn.25 | Firstversion:September15,2014;thisversion:October30,2014 Abstract In this note we review techniques for smile interpolation and extrapolation, and compare nu- merical results across the different methodologies. Examples of the smile interpolation include spline interpolations, mixed lognormal model and SABR model together with various volatility approximation formulas. For smile extrapolation we introduce two methods: shifted lognormal model and elementary-function-based approach. Contents 1 Introduction 1 2 Interpolation 1 2.1 Spline Interpolation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 2.2 SABR Model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 2.3 Mixed Lognormal Model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 3 Extrapolation 3 3.1 Benaim-Dodgson-Kainth Extrapolation . . . . . . . . . . . . . . . . . . . . . . . 4 3.2 Shifted Lognormal Model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 A Volatility Data 6 B Double Quadratic Interpolation 6 C Implied Volatility Formulas for SABR Model 7 1 Introduction Constructionofareliablevolatilitysmileisakeyrolefortheriskmanagementoffinancialderiva- tives. In order to achieve this, it is necessarily to apply robust interpolation methods to a set of discrete volatility data. There are primarily two approaches to the smile interpolation. The first strategy is to calibrate a smile model including mixed lognormal model [Whi12], stochastic volatility inspired (SVI) parametrisation [Gat04], and stochastic volatility models such as Hes- ton model [Hes93] and stochastic alpha beta rho (SABR) model [HKLW02]. Alternatively one can interpolate the volatility data based on a specific functional form. Its examples are spline interpolations (see [Iwa13] and references therein). Incertainsituationsitisalsorequiredtoestimatevolatilityvaluesoutsideoftherangeofthe market-available strikes, that is, to extrapolate the smile outside of the data range. For example we encounter the following integrals for pricing in-arrears products [Hen11b], (cid:90) ∞ F(σ(K),K)dK, (1.1) K∗ (cid:90) K∗ F(σ(K),K)dK,
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > 1 Introduction 1
+    > 2 Interpolation 1
+    > 2.3 Mixed Lognormal Model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+    > 3 Extrapolation 3
+    > 3.1 Benaim-Dodgson-Kainth Extrapolation . . . . . . . . . . . . . . . . . . . . . . . 4
+    > 1 Introduction
+    > 2 Interpolation
+    > 2.1 Spline Interpolation
+    > 2.2 SABR Model
+    > 2.3 Mixed Lognormal Model
+    > 3 Extrapolation
+    > 3.1 Benaim-Dodgson-Kainth Extrapolation
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    volatility(45), extrapolation(39), interpolation(34), line(33)
+    smile(30), sabr(28), lognormal(26), data(26), opengamma(24)
+    shifted(15), strike(15), value(14), formula(14), mixed(12)
+    quadratic(11), implied(11), curve(11), double(10), arbitrage(10)
+    hagan(10)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    Cap/Floor / Swaption, Vol Surface / Smile, Day Count / Conventions, Term Structure Interpolation
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~4,181
+    Page density   : 209 words/page
+    Topic area     : Volatility bootstrapping from cap/floor market
+                     prices to caplet/floorlet vols; smile interpolation
+                     methods (SABR, cubic spline) used after stripping.
+    Topic area     : Yield curve construction methodologies (bootstrapping,
+                     interpolation, multi-curve framework, OIS discounting).
+
+
+########################################################################
+  PDF 07/16  |  Libor Functioning\Euribor FAQs Final.pdf
+  File size : 352.5 KB
+########################################################################
+  Pages         : 7
+  Chars extracted: 12,208
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  10 rue Montoyer B- 1000 Brussels T. +32 (0)2 508 37 11 – F. +32 (0)2 511 23 28 info@euribor-ebf.eu -www.euribor-ebf.eu Frequently Asked Questions about Euribor® What is Euribor®? Euribor® (Euro Interbank Offered Rate) is a benchmark giving an indication of the average rate at which banks lend unsecured funding in the euro interbank market for a given period. It is the rate at which euro interbank term deposits are offered by one prime bank to another within the EMU zone. It is produced for one, two and three weeks and for twelve maturities from one to twelve months. Individual Euribor® rates are the end-product of a calculation based upon submissions from a bank panel. To ensure the greatest possible accuracy and to make it senseless for the rate to be manipulated, Euribor’s panel comprises a large number of active players in the euro zone money markets of varying types, sizes and locations. The 43 banks currently on the panel range from savings banks to cooperative banks, and from regional to international institutions, and so forth. Given such different business models and banking strategies, finding a common interest between enough members to influence the index would be extremely difficult if not impossible. The list of current panel banks is attached. How is it defined? Contributing panel banks must quote the required euro rates to the best of their knowledge; these rates are defined as the rates at which euro interbank term deposits are being offered within the EMU zone by one prime bank to another at 11.00 a.m. Brussels time. Euribor® is not necessarily based on actual transactions, as not all banks will offer deposits in marketable size each day in each maturity they quote. Euribor® is based on an act/360 day-count convention, which means that each month is treated normally and the year is assumed to be 360 days. The current definition was adopted in 1998 at the creation of the benchmark. What is Euribor® used for? Euribor® is the benchmark rate of the large euro money market that has emerged since 1999. It is traditionally the main gauge of unsecured interbank euro lending. It is also widely used as the underlying rate in retail products like mortgages and derivatives transactions, both Over the Counter (OTC) and exchange-traded (futures and options). When and why was Euribor® created? Before the introduction of the single currency in 1999, most countries had
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > 10 rue Montoyer
+    > T. +32 (0)2 508 37 11 – F. +32 (0)2 511 23 28
+    > 1 http://www.euribor-ebf.eu/assets/files/Euribor_code_conduct.pdf
+    > 2 http://www.ecb.int/pub/pdf/mobu/mb200812en.pdf
+    > UBS S.A.
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    euribor(58), banks(30), panel(27), bank(16), euro(14), market(13)
+    interbank(9), rate(9), rates(9), calculation(9), european(8)
+    benchmark(6), money(6), markets(6), members(6), index(6)
+    national(6), process(6), steering(6), association(6)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    EURIBOR / LIBOR fixing, Day Count / Conventions
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~1,905
+    Page density   : 272 words/page
+    Topic area     : IBOR benchmark rate mechanics, fixing methodology,
+                     panelled submission process, fallback provisions.
+
+
+########################################################################
+  PDF 08/16  |  Libor Functioning\IBA_LIBOR_FAQ.pdf
+  File size : 242.1 KB
+########################################################################
+  Pages         : 3
+  Chars extracted: 8,687
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  LIBOR: FREQUENTLY ASKED QUESTIONS 1. What is ICE LIBOR and how is it calculated? What is ICE LIBOR? ICE LIBOR is designed to reflect the short term funding costs of major banks active in London, the world’s most important wholesale financial market. Like many other financial benchmarks, ICE LIBOR1 (formerly known as BBA LIBOR) is a ‘polled’ rate. This means that a panel of representative banks submits rates which are then combined to give the ICE LIBOR rate. Panel banks are required to submit a rate in answer to the ICE LIBOR question: “At what rate could you borrow funds, were you to do so by asking for and then accepting inter-bank offers in a reasonable market size just prior to 11 am?” Although banks now use transaction data to anchor their submissions, having a polled rate is crucial to ensure the continuous publication of such a systemic benchmark, even in times when liquidity is low and there are few transactions on which to base the rate. Currently only banks with a significant London presence are on the ICE LIBOR panels, yet transactions with other – non-bank – financial institutions can often inform panel banks’ submissions. ‘Reasonable market size’ is intentionally unquantified. The definition of an appropriate market size depends on the currency and tenor in question, as well as supply and demand. The current wording therefore avoids the need for frequent and confusing adjustments. 11 am was chosen because it falls in the most active part of the London business day. It is also sufficiently early in the day to allow the users of ICE LIBOR to use each day’s rates for valuation processes, which may take place in the afternoon. All ICE LIBOR rates are quoted as an annualised interest rate. This is a market convention. For example, if an overnight Pound Sterling rate from a contributor bank is given as 0.5000%, this does not indicate that a contributing bank would expect to pay 0.5% interest on the value of an overnight loan. Instead, it means that it would expect to pay 0.5% divided by 3652. How is ICE LIBOR calculated? ICE LIBOR is the ‘trimmed arithmetic mean’ of all of the panel banks’ submissions. This means that the highest and lowest 25%3 are removed and the rest is averaged (the actual number of banks removed depends on the number of submitters for each currency). The resulting rate
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > LIBOR: FREQUENTLY ASKED QUESTIONS
+    > 1. What is ICE LIBOR and how is it calculated?
+    > 1 Referred to here as ‘ICE LIBOR’ or ‘LIBOR’
+    > 3 Indicative – please see ICE LIBOR explained for details
+    > 2. What is ICE LIBOR used for?
+    > 3. Why did a new administrator take over LIBOR and why did ICE Benchmark
+    > 5. ICE LIBOR Continuity
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    libor(36), rate(20), banks(17), market(13), financial(12)
+    benchmark(11), interest(10), panel(9), submissions(8), london(5)
+    bank(5), publication(5), take(5), published(5), independent(5)
+    funding(4), most(4), important(4), many(4), integrity(4)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    EURIBOR / LIBOR fixing, Day Count / Conventions
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~1,359
+    Page density   : 453 words/page
+    Topic area     : IBOR benchmark rate mechanics, fixing methodology,
+                     panelled submission process, fallback provisions.
+
+
+########################################################################
+  PDF 09/16  |  Market Conventions\Accrued Interest  Yield Calculations.pdf
+  File size : 217.9 KB
+########################################################################
+  Pages         : 29
+  Chars extracted: 61,975
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  SWX Swiss Exchange Accrued Interest & Yield Calculations and Determination of Holiday Calendars Author(s): David Christie Date: Version, 03.11.2003 Classification: Unrestricted Reference: SWX-SBD-MAN-AIC-202_/E Keywords: Accrued interest, coupon Old Reference M-SPR-AIC-105/E payments, SPD, SBD Approval: Peter Keller Distribution: SWX Participant Back Offices, SIS, and others interested in the SWX interpretation of the ISMA actual/actual rules Filename: \\szh029\team\gbm\sbd\allgemein\Clearing & Documentum: Settlement\Accrued Interest & Yields\V2.2\SWX- SBD-MAN-AIC-202_E.doc Converted on 25.09.2002 by dc. Old Reference-No: M-SPR-AIC-105/E Table of Contents 1. Introduction 1 1.1 Definitions 2 1.2 Example Microsoft Excel Spreadsheet & MS Visual Basic Implementation 4 2. Accrued Interest Methods Supported by SWX 5 3. Calculation of Accrued Interest 6 3.1 Determination of the Settlement Date 6 3.2 Determination of Accrued Interest Dates 7 3.3 Determination of Number of Interest-bearing Days 7 3.4 Calculation of the Basic Accrued Interest Amount 8 3.5 Inclusion of Non Versé 10 4. Calculation of Interest Payments 11 5. Calculation of Yields 12 Appendix A. The ISMA-99 Methods 14 A.1 Details of the ISMA-99 Methods 14 A.2 ISMA-99 Examples 16 Appendix B. Interest_Payment Example 19 Appendix C. MS Visual Basic Implementation of the Accrued Interest Calculations 20 Appendix D. Determination of Holiday Calendars 26 D.1 Introduction 26 D.2 Weekend Day Calendar 26 D.3 Currency Calendars 27 D.4 Clearing Organisation Calendars 28 SWX-SBD-MAN-AIC-202_/E - SWX-SBD-MAN-AIC-202_E.doc Unrestricted SWX Swiss Exchange Page 1 Accrued Interest & Yield Calculations and Determination of Holiday Calendars Version, 03.11.2003 1. Introduction The introduction of the Euro and the start of SWX Eurobond trading required a revision of the available SWX accrued interest and yield calculation methods, since new day count methods were introduced for both from 4.1.1999 onward. The new SWX ISMA-99 methods are based on the ISMA rules which come into force at the beginning of 1999 (see the ISMA book “Bond Markets: Structures and Yield Calculations”, ISBN 1 901912 02 7, and ISMA’s Circular 14 of 1997). The US method is based on the 1994 edition of “Standard Securities Calculation Methods”, ASIN 1882936019, published by the Securities Industry Association. This brief document covers all the accrued interest calculation methods supported by SWX and gives the SWX interpretation of the ISMA rules. ISMA has approved this interpretation. Because the determination of holiday calendars is so important to the correct calculation of accrued interest, the way this is carried out in SWX is covered in Appendix D. The document also incorporates a description of the yield calculation
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > 1. Introduction 1
+    > 1.1 Definitions 2
+    > 1.2 Example Microsoft Excel Spreadsheet & MS Visual Basic Implementation 4
+    > 2. Accrued Interest Methods Supported by SWX 5
+    > 3. Calculation of Accrued Interest 6
+    > 3.1 Determination of the Settlement Date 6
+    > 3.2 Determination of Accrued Interest Dates 7
+    > 3.3 Determination of Number of Interest-bearing Days 7
+    > 3.4 Calculation of the Basic Accrued Interest Amount 8
+    > 3.5 Inclusion of Non Versé 10
+    > 4. Calculation of Interest Payments 11
+    > 5. Calculation of Yields 12
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    interest(238), date(189), coupon(182), days(129), accrued(108)
+    isma(84), period(77), year(71), settlement(63), number(60)
+    amount(56), payment(52), holiday(51), notional(51), actual(48)
+    swiss(47), month(47), calendars(42), determination(41), yield(39)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    Day Count / Conventions, Bloomberg data
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~10,227
+    Page density   : 352 words/page
+    Topic area     : Fixed income market conventions (day count, accrued
+                     interest, yield calculations, bill pricing, IR options).
+
+
+########################################################################
+  PDF 10/16  |  Market Conventions\ACT-ACT-ISDA-1999.pdf
+  File size : 229.9 KB
+########################################################################
+  Pages         : 7
+  Chars extracted: 73
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  Copyright © 1999 by International Swaps and Derivatives Association, Inc.
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    (none detected by heuristic)
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    copyright(1), international(1), swaps(1), derivatives(1)
+    association(1)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    General reference
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~10
+    Page density   : 1 words/page
+    Topic area     : Fixed income market conventions (day count, accrued
+                     interest, yield calculations, bill pricing, IR options).
+
+
+########################################################################
+  PDF 11/16  |  Market Conventions\Bill-Pricing-OpenGamma.pdf
+  File size : 145.0 KB
+########################################################################
+  Pages         : 2
+  Chars extracted: 2,842
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  BILL PRICING OPENGAMMAQUANTITATIVERESEARCH Abstract. Thedetailsoftheimplementationofpricingfor(Treasury)billsisprovided. 1. Introduction Treasury bills are instruments where the notional is paid at maturity, with no explicit interest is paid on top of the notional at maturity. In this note the maturity date is denoted t . p The interest is implicit through the settlement amount which differs from the notional. When the implicit interest rate or yield is positive, the paid amount is smaller than the notional. 2. Present Value For a bill, the cash flow is known and directly discounted with the credit curve relevant for the issuer. The settlement amount is discounted with the risk-free curve, as the amount to be paid for settlement is collateralised by the bill (delivery versus payment (DVP)). The two curves used are (1) Discounting (risk-free) : PD(t). (2) Credit (issuer): PC(t). PVSecurity =PC(t ) Discounting p The present value of a transaction with settlement amount S is given by (1) PVTransaction =PVSecurity +SPD(t ). Discounting Discounting s 3. Yield and price 3.1. US convention. Bills, which mature in a year or less, are quoted differently from notes and bonds, since bills do not pay an established rate of interest. An investor’s return on a bill is the difference between the purchase and subsequent sale price or, when held to maturity, the face value paid by the Treasury. Consequently, bills are quoted at a discount from face value, with the discount expressed as an annual rate based on a 360-day year. To determine the settlement amount paid (A) from the rate (R), rate is multiplied by the number of days to maturity and divided by 360 days (accrual factor δ ). This is subtracted from i the face value: (2) A=1−δ R. i In the US convention no price is quoted. TheUSconventionscanbefoundathttp://newyorkfed.org/aboutthefed/fedpoint/fed07. html. Date:Firstversion: 9January2012;thisversion: 9January2012. Version1.0. 1 2 OPENGAMMA 3.2. Canada. The day count convention is ACT/365. For a bill with accrual factor δ and rate i R, the amount paid is A: 1 (3) A= . 1+δ R i The amount paid is also called price. The Canadian conventions can be found at http://www.fin.gc.ca/invest/bondprice-eng. asp. 3.3. Germany, Belgium. The day count convention is ACT/360. For a accrual factor δ and a i rate R, the amount paid is A: 1 (4) A= . 1+δ R i The amount paid is also called price. The standard settlement is T+2. TheBelgianconventionscanbefoundintheProcedureManual availableathttp://debtagency. be/en_products_tc_characteristics.htm. 3.4. France (BTF). The day
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > BILL PRICING
+    > OPENGAMMAQUANTITATIVERESEARCH
+    > 1. Introduction
+    > 2. Present Value
+    > 3. Yield and price
+    > 2 OPENGAMMA
+    > (3) A= .
+    > 3.3. Germany, Belgium. The day count convention is ACT/360. For a accrual factor δ and a
+    > (4) A= .
+    > 3.4. France (BTF). The day count convention is ACT/360.
+    > 1. Introduction 1
+    > 2. Present Value 1
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    paid(10), amount(10), rate(7), settlement(6), value(6), price(6)
+    convention(6), bill(5), maturity(5), bills(4), notional(4)
+    interest(4), discounting(4), treasury(3), yield(3), present(3)
+    quoted(3), face(3), accrual(3), factor(3)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    Day Count / Conventions
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~440
+    Page density   : 220 words/page
+    Topic area     : Fixed income market conventions (day count, accrued
+                     interest, yield calculations, bill pricing, IR options).
+
+
+########################################################################
+  PDF 12/16  |  Market Conventions\interest rate options conventions.pdf
+  File size : 486.7 KB
+########################################################################
+  Pages         : 11
+  Chars extracted: 20,799
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  September 2013 Interest Rate Options Conventions Contents 1. Description ............................................................................................................................................... 3 2. Products ................................................................................................................................................... 3 2.1. Cap ............................................................................................................................................ 3 2.2. Floor .......................................................................................................................................... 3 2.3. Swaption ................................................................................................................................... 3 2.4. Bond Option ............................................................................................................................. 4 3. Dealing ..................................................................................................................................................... 4 3.1. Methods of Dealing .................................................................................................................. 4 3.2. Electronic Dealing ..................................................................................................................... 4 3.3. Business Days ........................................................................................................................... 4 3.3.1. Good Business Day .................................................................................................... 4 3.3.2. Non Business Day ...................................................................................................... 4 3.4. Standard Transaction Size (AUD million) .................................................................................. 5 3.5. Two Way Pricing ....................................................................................................................... 5 3.6. Quotation and Dealing ............................................................................................................. 5 3.7. Other Instrument Conventions ................................................................................................ 5 3.8. Basis .......................................................................................................................................... 5 3.9. Maturity Conventions ............................................................................................................... 6 3.10. Settlement Rate or Index ......................................................................................................... 6 3.11. Premium Payment Date(s) ....................................................................................................... 6 3.12. Expiry Conventions ................................................................................................................... 6 3.13. Broker Conventions .................................................................................................................. 6 3.14. Confidentiality .......................................................................................................................... 7 3.15. Credit ........................................................................................................................................ 7 3.16. Exercise of Options ................................................................................................................... 7 3.17. Data Source .............................................................................................................................. 7 3.18. Pricing Formulae ....................................................................................................................... 7 4. Confirmations .......................................................................................................................................... 7 4.1. Timing ....................................................................................................................................... 8 4.2. Confirmation Standards ........................................................................................................... 8 4.3. Transaction Information ........................................................................................................... 8 4.3.1. Caps, Floors and Collars ............................................................................................ 8 4.3.2. Swaptions .................................................................................................................. 8 4.3.3. Bond Options ............................................................................................................ 9 5. Settlements .............................................................................................................................................. 9 5.1. Physical Settlements................................................................................................................. 9 5.1.1. General ...................................................................................................................... 9 5.1.2. Swaptions .................................................................................................................. 9 5.2. Cash Settlements ...................................................................................................................... 9 5.2.1. Methodology - Caps and Floors .............................................................................. 10 5.2.2. Methodology - Swaptions ....................................................................................... 10 Interest Rate Option Conventions Page | 1 5.2.3. Payments - Caps and Floors .................................................................................... 10 5.2.4. Discounted in Advance ........................................................................................... 10 5.2.5. Non Discounted in Arrears ...................................................................................... 11 Interest Rate Option Conventions Page | 2 1. Description This market covers those transactions where the buyer of an interest rate option has the right but not the obligation to buy or sell a designated quantity of a specified interest rate product at a specified price or rate on or before a specified date. The buyer pays a premium for this right. The predominant appeal of OTC options lies in the fact that the strikes, notional principals, expiry dates and times, type of option and the underlying swap characteristics can all be adjusted to suit individual requirements. The benefit of having exact tailor made risk management products is that interest rate exposures can be perfectly hedged. The following market conventions provide a basis for the trading of OTC interest rate options. However, given the flexibility involved in this market the following conventions are able to be customised with each deal. Any characteristics which are contrary to the
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > 1. Description
+    > 2. Products
+    > 2.1. Cap
+    > 2.2. Floor
+    > 2.3. Swaption
+    > 2.4. Bond Option
+    > 3. Dealing
+    > 3.1. Methods of Dealing
+    > 3.2. Electronic Dealing
+    > 3.3. Business Days
+    > 3.3.1. Good Business Day
+    > 3.3.2. Non Business Day
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    rate(46), option(42), date(40), conventions(27), bond(25)
+    interest(23), buyer(23), options(21), business(21), settlement(21)
+    exercise(20), expiry(19), swap(19), swaption(18), basis(17)
+    caps(17), floors(17), swaptions(17), market(17), transaction(14)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    EURIBOR / LIBOR fixing, Cap/Floor / Swaption, Day Count / Conventions, Discounting / DCF
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~2,689
+    Page density   : 244 words/page
+    Topic area     : Fixed income market conventions (day count, accrued
+                     interest, yield calculations, bill pricing, IR options).
+
+
+########################################################################
+  PDF 13/16  |  Market Conventions\interest-rate-instruments-and-market-conventions.pdf
+  File size : 257.1 KB
+########################################################################
+  Pages         : 64
+  Chars extracted: 102,173
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  Interest Rate Instruments and Market Conventions Guide December2013 Copyright⃝c 2011-2013OpenGammaLtd.. ThisdocumentislicensedtothepublicunderaCreativeCommonsAttributionNonCommercial 3.0UnportedLicense http://creativecommons.org/licenses/by/3.0/. AttributionunderthelicenseshouldbetoOpenGamma. Thisdocumentisforinformationalpurposesonly,andisprovided￿asis￿. OpenGammadeclinesallre- sponsibilityofanyerrorsandanylossordamageresultingfromuseofthecontentsofthisdocument. Userassumesthefullriskofusingthisdocument.Formoreinformation,pleaseseethetextofthelicense (http://creativecommons.org/licenses/by/3.0/legalcode). Edition2.0 Firstedition:24May2011 Thisedition:16December2013 Contents ListofTables v Preface vi Part1. References 1 Chapter1. Associations 2 1. InternationalSwapsandDerivativesAssociation 2 2. BritishBankers'Associations 2 3. Euribor-EBF 2 4. AustralianFinancialMarketsAssociation 2 5. DanishBankersAssociation 2 6. WholesaleMarketsBrokersAssociation 2 7. JapaneseBankersAssociation 2 Chapter2. Exchanges 3 1. AustralianSecuritiesExchange 3 2. BM&FBovespa-Brazil 3 3. CMEGroup 3 4. Eurex 3 5. IntercontinentalExchange-ICE 3 6. LCH.Clearnet 3 7. MEFF-Spain 4 8. Montr(cid:19)ealExchange 4 9. NASDAQOMX 4 10. NYSEEuronext 4 11. SingaporeExchange-SGX 4 12. TokyoStockExchange 4 13. SouthAfricanFuturesExchange-JSE 4 Chapter3. Daycountconventions 5 1. 1/1 5 2. 30/360methods 5 3. 30/360 5 4. 30E/360 5 5. 30E/360(ISDA) 5 6. 30E+/360ISDA 5 7. ACT/360 6 8. ACT/365Fixed 6 9. ACT/365L 6 10. ACT/365A 6 11. NL/365 6 12. ACT/ACTISDA 7 13. ACT/ACTICMA 7 14. Business/252 7 i CONTENTS ii Chapter4. Businessdayconventions 8 1. Following 8 2. Preceding 8 3. Modifiedfollowing 8 4. Modifiedfollowingbimonthly 8 5. Endofmonth 8 Chapter5. Overnightindexes 9 1. Committeemeetings 9 2. CHF-TOIS 10 3. EUR-EONIA 10 4. EUR-EURONIA 10 5. GBP-SONIA 10 6. JPY-TONAR-UncollateralizedOvernightCallRate 10 7. USD-EffectiveFederalFundsRate 10 8. AUD-RBAInterbankOvernightCashRateSurvey/AONIA 10 9. CAD-CORRA 11 10. DKK-DanmarksNationalbankTomorrow/Nextinterestrate 11 11. NZD-NZIONA 11 12. SEK-SIOR/T/NSTIBOR 11 13. SGD-SONAR 11 14. ZAR-SFXZAROND 11 15. ZAR-SAONIA 11 Chapter6. Ibor-likeindexes 12 1. LIBOR 12 2. GBP-LIBOR 13 3. EUR-LIBOR 13 4. EURIBOR 13 5. JPY-TIBOR 13 6. AUD-BBSW 13 7. CAD-CDOR 14 8. DKK-CIBOR 14 9. HKD-HIBOR 14 10. INR-MIFOR 14 11. NOK-NIBOR 14 12. RMB-SHIBOR 14 13. SEK-STIBOR 14 14. SGD-SIBOR 14 15. SGD-SOR 14 16. ZAR-JIBAR 15 Part2. Exchangetradedinstruments 16 Chapter7. Overnightindexlinkedfutures 18 1. FederalFundsFutures 18 2. OnemonthEONIAindexedfutures 18 3. One-DayInterbankDepositFuturesContract-Brazil 18 Chapter8. ShortTermInterestRateFuturesIborbased 20 1. USD 20 2. EUR 20 3. GBP 20 4. JPY 21 5. CHF 21 CONTENTS iii 6. AUD 21 7. CAD 21 8. ZAR 21 Chapter9. InterestRateFuturesOptions:Premium 22 Chapter10. InterestRateFuturesOptions:Margin 23 Chapter11. Bankbillfutures(AUDstyle) 24 Chapter12. Deliverableswapfutures(presentvaluequoted) 25 Chapter13. Bondfutures(nonAUD/NZD) 26 1. USD 26 2. EUR-Germany 28 3. GBP 28 4. JPY 28 5. EUR-Spain 29 6. Settlement 29 Chapter14. OptionsonBondfutures(nonAUD/NZD):Premium 30 1. USD-CBOT 30 Chapter15. OptionsonBondfutures(nonAUD/NZD):Margin 31 1. EUR-EUREX 31 Chapter16. Bondfutures(AUD) 32 1. Description 32 2. Futuresettlement 32 Part3. Over-The-CounterInstruments 34 Chapter17. ForwardRateAgreement 35 Chapter18. Interestrateswaps(FixedforIbor) 36 1. Legpayments 36 2. Vanillaswaps 36 3. Composition 37 4. IMMdatesswap 38 5. In-arrearsswaps 38 6. Shortandlongtenors 38 7. Step-upandstep-down 38 8. Amortised,accruingandrollercoasterswaps 38 Chapter19. Interestrateswaps(Basisswap;IborforIbor) 39 Chapter20. Interestrateswaps(Cross-currencyswap;IborforIbor) 40 Chapter21. Swapindexes
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > 1. InternationalSwapsandDerivativesAssociation 2
+    > 2. BritishBankers'Associations 2
+    > 3. Euribor-EBF 2
+    > 4. AustralianFinancialMarketsAssociation 2
+    > 5. DanishBankersAssociation 2
+    > 6. WholesaleMarketsBrokersAssociation 2
+    > 7. JapaneseBankersAssociation 2
+    > 1. AustralianSecuritiesExchange 3
+    > 2. BM&FBovespa-Brazil 3
+    > 3. CMEGroup 3
+    > 4. Eurex 3
+    > 5. IntercontinentalExchange-ICE 3
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    libor(61), reference(61), chapter(56), http(51), euribor(35)
+    isda(26), month(25), currency(25), period(22), liffe(17)
+    seedaycount(17), seeexchange(17), convention(16), theday(16)
+    countconventionisact(16), london(15), index(14), cash(13)
+    enddate(13), months(13)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    EURIBOR / LIBOR fixing, Cap/Floor / Swaption, Day Count / Conventions, Bloomberg data
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~4,973
+    Page density   : 77 words/page
+    Topic area     : Fixed income market conventions (day count, accrued
+                     interest, yield calculations, bill pricing, IR options).
+
+
+########################################################################
+  PDF 14/16  |  Term Structure Bootstrapping\jfi_1994_Max_Smoothness_v03.pdf
+  File size : 787.2 KB
+########################################################################
+  Pages         : 11
+  Chars extracted: 35,302
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  FITTING YIELD CU FORWARD RATE CURVES WITH MAXIMUM SMOOTHNESS KENNETH J. ADAMS AND DONALD R. VAN DOEVENTER T e increasing richness of the theories of the term structure of interest rates, combined with the increasing complexity of derivative products whose yield is a function of interest rates and exchange rates, has highlighted the empirical challenges of fitting yield curves to current market data. The pio- neering work of McCulloch [1975], using polynomial splines, and Vasicek and Fong 119821, using exponen- tial splines, provides the foundation for traditional approaches to this complex topic. Hull and White [1993] have shown that the sin- gle-factor term structure models like thost: of Vasicek [1977] and Cox, Ingersoll, and Ross [1985] can be extended by allowing selected parameters to drift over time, which generally will provide a perfect fit to observable yield curve data. Between observable data points, however, some yield curve smoothing tech- nique is necessary for the successful application of the Hull and White approach. This article presents a new approach to yield curve smoothing that provides a sound bash for imple- mentation of these techniques. Previous approaches to yield curve smoothing (see Buono, Gregory-Men, and Yaari [1992] for a recent survey) define the “‘best”y ield curve as that function with relatively few parameters that fits a large set of data most accurately when using multiple regression techniques. We take a much differ- ent approach. KEIVNEFH J. ADAMS is vice By carefully defining the criterion fbr the best president of the Kamakura Corpora- fitting yield curve to be “maximum smoclthness” for tion in Chigasaki, Japan. the forward rate curve, we arrive at a simple but pow- e h l technique for yield curve fitting. Thij technique DONALD R. VAN DEVENTER can be used for fitting the yield curve with one explic- is president of the Kamakura Corponaon. it function that is both consistent with all observed 52 FI~INYGI ELDC URVESA ND FORWARD RATE CURVESW ITH MAXIMUM SMOOTHNESS JUNE 1994 .90/20/70 no YTISREVINU AIBMULOC yb moc.slanruojii.www morf dedaolnwoD .26-25:1.4.4991 emocnI dexiF fo lanruoJ ehT .noissimrep rehsilbuP tuohtiw yllacinortcele tsop ot ro resu dezirohtuanu na ot drawrof ,elcitra siht fo seipoc dezirohtuanu ekam ot lagelli si tI points on the yield curve and provides the smoothest function, and adapt the exponential form to fit bond possible forward rate curve consistent with the chosen price data (from which yields are derived). Like functional form. In addition,
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > FITTING YIELD CU FORWARD RATE
+    > CURVES WITH MAXIMUM SMOOTHNESS
+    > KENNETH J. ADAMS AND DONALD R. VAN DOEVENTER
+    > DONALD R. VAN DEVENTER
+    > 52 FI~INYGI ELDC URVESA ND FORWARD RATE CURVESW ITH MAXIMUM SMOOTHNESS JUNE 1994
+    > YTISREVINU
+    > AIBMULOC
+    > II. YIELD CURVE RELATIONSHIPS IN
+    > I. REVIEW OF PRIOR WORK ON CONTINUOUS TIME
+    > YIELD CURVE SMOOTHING
+    > JUNE 1994 THE JOURNAL OF FIXED INCOME 53
+    > YTISREVINU
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    yield(90), smoothness(70), curve(60), forward(52), spline(46)
+    rate(45), rates(45), data(43), smoothing(43), maximum(42), cubic(39)
+    quarter(29), curves(25), bond(23), fitting(22), term(22)
+    dezirohtuanu(22), exponential(22), linear(21), swap(21)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    EUR IRS / Curve Bootstrap, Day Count / Conventions, Discounting / DCF, Term Structure Interpolation
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~5,817
+    Page density   : 528 words/page
+    Topic area     : Yield curve construction methodologies (bootstrapping,
+                     interpolation, multi-curve framework, OIS discounting).
+
+
+########################################################################
+  PDF 15/16  |  Term Structure Bootstrapping\The Professional Handbook of Financial Risk Management The Yield Curve.pdf
+  File size : 5082.1 KB
+########################################################################
+  Pages         : 36
+  Chars extracted: 0
+  [WARN] No text extracted (possibly scanned / image-only PDF)
+
+
+########################################################################
+  PDF 16/16  |  Term Structure Bootstrapping\TheArtAndScienceofCurveBuilding.pdf
+  File size : 203.4 KB
+########################################################################
+  Pages         : 11
+  Chars extracted: 19,354
+
+  -- FIRST 400 WORDS (abstract / introduction) --------------------------
+  December 2005 Issue ________________________________________________________________________ Revisiting “The Art and Science of Curve Building” FINCAD has added curve building features (enhanced linear forward rates and quadratic forward rates) in Version 9 that further enable you to fine tune the pricing of your financial instruments. This article builds on a previously published article by FINCAD called “The Art and Science of Curve Building” released in the June 2004 issue of FINCAD News. To explore how you could use FINCAD XL Version 9 to build better curves, please download a free 7-day trial of FINCAD XL at http://www.fincad.com/download.asp?id=13800&s=Downloads&n=FINCAD%20XL. At first glance, the mechanics of building a discount factor curve would appear to be a fairly mundane subject. At the very least, one would expect that it must be trivial, completely understood and there must be a market standard way of doing it. After all, a good interest rate curve is the most basic requirement for pricing and hedging interest rate derivatives. If the input curve is bad, no matter the model, it is guaranteed that the prices and hedging parameters it returns will be bad. As the saying goes: garbage in, garbage out. In fact, it turns out, that there is quite a bit of subtlety and flexibility in the curve building process. There is room for some (well thought-out) artistic license. Moreover, the subject is certainly not as well understood as it should be. To illustrate, we will focus on the swap market. In this market, generally, the discount factor curve is built based on a combination of quoted money market and par swap rates. For the purposes of our discussion, the money market rates are not important. Our example is based on the following swap rate data: Term Par Swap Rate Term Par Swap Rate 2Y 2.70% 15Y 4.80% 5Y 3.60% 20Y 4.80% 10Y 4.60% 25Y 4.75% The swaps pay annually and accrue 30/360. We chose these properties to eliminate the complications of having to consider accrual factors, even though real swaps are usually quarterly or semi-annual. This assumption means that a 4.6% swap pays a fixed coupon of 4.6% each year. For the sake of simplicity, we have further assumed that the swaps are spot settled. Consistency is not enough The process of building a discount factor curve from market quotes is known as bootstrapping. The basic requirement of the discount factor curve is that it be consistent with all input
+
+  -- DETECTED HEADINGS -------------------------------------------------
+    > 2Y 2.70% 15Y 4.80%
+    > 5Y 3.60% 20Y 4.80%
+    > 10Y 4.60% 25Y 4.75%
+    > 6Y 5Y 7Y 5Y
+    > IMPLIED, IN THIS SUMMARY.
+
+  -- TOP 20 CONTENT KEYWORDS -------------------------------------------
+    curve(63), rates(57), forward(51), discount(28), interpolation(23)
+    factors(18), building(17), linear(17), rate(17), bootstrapping(16)
+    swap(15), science(14), fincad(14), example(14), issue(12)
+    revisiting(12), december(11), factor(11), constant(11), year(10)
+
+  -- RELEVANCE TAGS ----------------------------------------------------
+    EUR IRS / Curve Bootstrap, Day Count / Conventions, Discounting / DCF, Term Structure Interpolation
+
+  -- SUMMARY / KEY OBSERVATIONS ----------------------------------------
+    Word count     : ~3,022
+    Page density   : 274 words/page
+    Topic area     : Yield curve construction methodologies (bootstrapping,
+                     interpolation, multi-curve framework, OIS discounting).
+
+========================================================================
+  END OF REFDOCS INTUITION
+========================================================================
+
+  How to use these references in the project:
+
+  1. CURVE CONSTRUCTION (Questions 2 & 4):
+       Bootstrap the EUR EURIBOR/OIS curve using IRS CURVE data.
+       Key refs: 'TheArtAndScienceofCurveBuilding.pdf',
+       'The Professional Handbook... Yield Curve.pdf',
+       'jfi_1994_Max_Smoothness_v03.pdf' (max-smoothness interpolation).
+       Bloomberg: 'building_the_bloomberg_irc.pdf',
+       'Bloomberg Recommended Settings for Interest Rate Curve.pdf'.
+
+  2. CAP/FLOOR PRICING (Question 3):
+       Understand vol surface structure, caplet stripping, and smile.
+       Key refs: 'caplet-stripping-opengamma.pdf',
+       'SmileInterpolation_OpenGamma.pdf'.
+       Model reference: Bachelier sheet in MarketData202526.xlsx.
+
+  3. CONVENTIONS (throughout):
+       Day count (30/360, ACT/360, ACT/ACT): Market Conventions folder.
+       Key refs: 'interest-rate-instruments-and-market-conventions.pdf',
+       'interest rate options conventions.pdf', 'ACT-ACT-ISDA-1999.pdf').
+
+  4. EURIBOR/LIBOR REFORM awareness:
+       Bond has 'Reference Rate Replacement: Applicable' clause.
+       Key refs: 'Euribor FAQs Final.pdf', 'IBA_LIBOR_FAQ.pdf'.
+========================================================================

@@ -1,0 +1,10 @@
+measure,exact_analytical,mc_100k,difference,ratio
+sigma_P (EUR),11.7452,11.7533,,
+VaR_99 (EUR),27.3235,27.3391,+0.0156,1.000570
+ES_99 (EUR),31.3036,31.3850,+0.0814,1.002601
+
+component,beta,sigma_bps,beta_sigma,variance_share_pct
+Level (PC1),0.109885,48.8903,5.3723,20.92
+Slope (PC2),-0.113714,12.0998,1.3759,1.37
+Curvature (PC3),0.044097,5.1943,0.2291,0.04
+CDS,-0.752925,13.7477,10.3510,77.67
